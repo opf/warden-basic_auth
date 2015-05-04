@@ -1,5 +1,7 @@
 # Warden::BasicAuth
 
+[![Code Climate](https://codeclimate.com/github/opf/warden-basic_auth/badges/gpa.svg)](https://codeclimate.com/github/opf/warden-basic_auth)
+
 Provides a Warden base strategy for basic auth.
 
 ## Installation
@@ -7,7 +9,7 @@ Provides a Warden base strategy for basic auth.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'warden-basic_auth'
+gem 'warden-basic_auth', git: 'https://github.com/opf/warden-basic_auth.git'
 ```
 
 And then execute:
