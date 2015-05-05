@@ -9,7 +9,7 @@ Provides a Warden base strategy for basic auth.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'warden-basic_auth', git: 'https://github.com/opf/warden-basic_auth.git'
+gem 'warden-basic_auth', '~> 0.1.0'
 ```
 
 And then execute:
