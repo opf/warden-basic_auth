@@ -1,5 +1,6 @@
 # Warden::BasicAuth
 
+[![Build Status](https://travis-ci.org/opf/warden-basic_auth.svg?branch=master)](https://travis-ci.org/opf/warden-basic_auth)
 [![Code Climate](https://codeclimate.com/github/opf/warden-basic_auth/badges/gpa.svg)](https://codeclimate.com/github/opf/warden-basic_auth)
 
 Provides a Warden base strategy for basic auth.
