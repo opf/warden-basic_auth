@@ -17,7 +17,7 @@ module RackHelpers
   def response_for(*args)
     status, headers, body = args
 
-    Rack::Response.new [body], status, headers
+    Rack::Response.new body, status, headers
   end
 
   def basic_auth(username, password)
