@@ -29,7 +29,7 @@ module Warden
       def authentication_failed
         headers 'WWW-Authenticate' => %(Basic realm="#{realm}")
 
-        custom! [401, headers, ['unauthorized']]
+        fail! 'unauthorized'
       end
 
       def store?

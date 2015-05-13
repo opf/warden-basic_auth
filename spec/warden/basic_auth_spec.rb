@@ -44,9 +44,24 @@ describe Warden::BasicAuth do
         end
       end
 
+      let(:failure_app) do
+        lambda do |env|
+          warden = env['warden']
+
+          resp =
+            if warden && warden.result
+              warden
+            else
+              Struct.new(:message, :headers).new('y u no authenticate', {})
+            end
+
+          [401, resp.headers, [resp.message]]
+        end
+      end
+
       let(:warden) do
         Warden::Manager.new protected_app, default_strategies: [:basic_auth],
-                                           failure_app: ->(env) { [403, {}, 'y u no authenticate'] }
+                                           failure_app: failure_app
       end
 
       let(:app) { warden }
@@ -58,8 +73,8 @@ describe Warden::BasicAuth do
           expect(response.body.first).to eq 'y u no authenticate'
         end
 
-        it 'returns HTTP 403' do
-          expect(response.status).to eq 403
+        it 'returns HTTP 401' do
+          expect(response.status).to eq 401
         end
       end
 
