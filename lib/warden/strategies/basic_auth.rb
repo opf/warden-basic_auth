@@ -27,7 +27,7 @@ module Warden
       end
 
       def authentication_failed
-        headers 'WWW-Authenticate' => %(Basic realm="#{realm}")
+        headers 'WWW-Authenticate' => %(#{auth_scheme} realm="#{realm}")
 
         fail! 'unauthorized'
       end
@@ -46,6 +46,10 @@ module Warden
 
       def request
         @request ||= Rack::Auth::Basic::Request.new(env)
+      end
+
+      def auth_scheme
+        'Basic'
       end
 
       def realm
